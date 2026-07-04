@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ================================================================
+   SentinelAI Cyber Navy Design System
+   Premium Government-Grade Cybercrime Investigation Platform
+   ================================================================ */
+
+@theme {
+  /* Cyber Navy Color Palette */
+  --color-navy-bg: #070B14;
+  --color-navy-secondary: #0B1220;
+  --color-navy-card: #121B2A;
+  --color-navy-border: #223047;
+  --color-navy-primary: #00B8FF;
+  --color-navy-hover: #29C5FF;
+  --color-navy-success: #00D084;
+  --color-navy-warning: #FFB020;
+  --color-navy-danger: #FF4D6D;
+  --color-navy-text: #F8FAFC;
+  --color-navy-muted: #98A2B3;
+
+  /* Base System */
+  --color-background: #070B14;
+  --color-foreground: #F8FAFC;
+  
+  /* Primary System */
+  --color-primary: #00B8FF;
+  --color-primary-hover: #29C5FF;
+  --color-primary-foreground: #070B14;
+  
+  /* Surface System */
+  --color-surface: #0B1220;
+  --color-surface-elevated: #121B2A;
+  --color-surface-border: #223047;
+  
+  /* Status Colors */
+  --color-success: #00D084;
+  --color-warning: #FFB020;
+  --color-danger: #FF4D6D;
+  
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
+  
+  /* Border Radius */
+  --radius: 8px;
+  --radius-sm: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+}
+
+/* ================================================================
+   Base Styles - Cyber Navy Enterprise
+   ================================================================ */
+
+@layer base {
+  *, *::before, *::after {
+    @apply border-[#223047];
+  }
+
+  html {
+    color-scheme: dark;
+    overflow-x: hidden;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-[#070B14] text-[#F8FAFC];
+    font-family: var(--font-sans);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+  }
+
+  /* Professional Scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0B1220;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #223047;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a3d5a;
+  }
+}
+
+/* ================================================================
+   Cyber Navy Components
+   ================================================================ */
+
+.enterprise-card {
+  @apply bg-[#121B2A] border border-[#223047] rounded-lg;
+  transition: all 0.2s ease;
+}
+
+.enterprise-card:hover {
+  @apply border-[#2a3d5a];
+}
+
+.enterprise-card-accent {
+  @apply border-t-2 border-t-[#00B8FF];
+}
+
+.data-table {
+  @apply text-sm;
+}
+
+.data-table th {
+  @apply text-xs font-semibold text-[#98A2B3] uppercase tracking-wider;
+}
+
+.data-table td {
+  @apply text-[#F8FAFC];
+}
+
+.data-table tr:hover {
+  @apply bg-[#0B1220];
+}
+
+/* ================================================================
+   Buttons - Enterprise Only
+   ================================================================ */
+
+.btn-primary {
+  @apply px-4 py-2 bg-[#00B8FF] hover:bg-[#29C5FF] text-[#070B14] text-sm font-semibold rounded-lg transition-colors;
+}
+
+.btn-secondary {
+  @apply px-4 py-2 bg-[#121B2A] hover:bg-[#1a2638] border border-[#223047] text-[#F8FAFC] text-sm font-medium rounded-lg transition-colors;
+}
+
+.btn-ghost {
+  @apply px-4 py-2 hover:bg-[#0B1220] text-[#F8FAFC] text-sm font-medium rounded-lg transition-colors;
+}
+
+.btn-danger {
+  @apply px-4 py-2 bg-[#FF4D6D] hover:bg-[#ff6680] text-white text-sm font-semibold rounded-lg transition-colors;
+}
+
+/* ================================================================
+   Status Badges
+   ================================================================ */
+
+.badge {
+  @apply px-2.5 py-1 rounded-md text-xs font-semibold;
+}
+
+.badge-success {
+  @apply bg-[#00D084]/10 text-[#00D084] border border-[#00D084]/20;
+}
+
+.badge-warning {
+  @apply bg-[#FFB020]/10 text-[#FFB020] border border-[#FFB020]/20;
+}
+
+.badge-danger {
+  @apply bg-[#FF4D6D]/10 text-[#FF4D6D] border border-[#FF4D6D]/20;
+}
+
+.badge-primary {
+  @apply bg-[#00B8FF]/10 text-[#00B8FF] border border-[#00B8FF]/20;
+}
+
+.badge-neutral {
+  @apply bg-[#223047]/50 text-[#98A2B3] border border-[#223047];
+}
+
+/* ================================================================
+   Navigation
+   ================================================================ */
+
+.nav-item {
+  @apply flex items-center gap-3 px-3 py-2.5 text-sm text-[#98A2B3] hover:text-[#F8FAFC] hover:bg-[#0B1220] rounded-lg transition-colors relative;
+}
+
+.nav-item-active {
+  @apply text-[#F8FAFC] bg-[#0B1220];
+}
+
+.nav-item-active::before {
+  content: '';
+  @apply absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-8 bg-[#00B8FF] rounded-r;
+}
+
+.nav-section-header {
+  @apply text-[10px] font-bold text-[#98A2B3] uppercase tracking-wider px-3 py-2;
+}
+
+/* ================================================================
+   Forms
+   ================================================================ */
+
+.form-input {
+  @apply w-full px-3 py-2 bg-[#0B1220] border border-[#223047] rounded-lg text-sm text-[#F8FAFC] placeholder-[#98A2B3];
+  @apply focus:outline-none focus:border-[#00B8FF] focus:ring-1 focus:ring-[#00B8FF]/20;
+  transition: all 0.2s ease;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-[#F8FAFC] mb-1.5;
+}
+
+.form-select {
+  @apply w-full px-3 py-2 bg-[#0B1220] border border-[#223047] rounded-lg text-sm text-[#F8FAFC];
+  @apply focus:outline-none focus:border-[#00B8FF] focus:ring-1 focus:ring-[#00B8FF]/20;
+  transition: all 0.2s ease;
+}
+
+/* ================================================================
+   Charts & Graphs
+   ================================================================ */
+
+.chart-container {
+  @apply bg-[#121B2A] border border-[#223047] rounded-lg p-4;
+}
+
+/* ================================================================
+   ReactFlow Enterprise Styling
+   ================================================================ */
+
+.react-flow {
+  @apply bg-[#070B14];
+}
+
+.react-flow__node {
+  @apply rounded-lg text-xs font-medium bg-[#121B2A] border border-[#223047];
+}
+
+.react-flow__node.selected {
+  @apply border-[#00B8FF];
+  box-shadow: 0 0 0 2px rgba(0, 184, 255, 0.2);
+}
+
+.react-flow__edge-path {
+  stroke: #223047;
+  stroke-width: 1.5;
+}
+
+.react-flow__controls {
+  @apply bg-[#121B2A] border border-[#223047] rounded-lg overflow-hidden;
+}
+
+.react-flow__controls-button {
+  @apply bg-[#121B2A] border-[#223047] text-[#98A2B3];
+  @apply hover:bg-[#0B1220] hover:text-[#F8FAFC];
+}
+
+.react-flow__minimap {
+  @apply bg-[#121B2A] border border-[#223047] rounded-lg overflow-hidden;
+}
+
+/* ================================================================
+   Animations - Minimal & Professional
+   ================================================================ */
+
+@keyframes fade-in {
+  from { 
+    opacity: 0; 
+    transform: translateY(4px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slide-in {
+  from { 
+    opacity: 0; 
+    transform: translateX(8px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0); 
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.2s ease-out forwards;
+}
+
+/* ================================================================
+   Focus States
+   ================================================================ */
+
+.focus-ring:focus {
+  outline: none;
+  border-color: #00B8FF;
+  box-shadow: 0 0 0 3px rgba(0, 184, 255, 0.1);
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #00B8FF;
+  outline-offset: 2px;
+}
+
+/* ================================================================
+   Utility Classes
+   ================================================================ */
+
+.text-mono {
+  font-family: var(--font-mono);
+}
+
+.accent-border {
+  @apply border-t-2 border-t-[#00B8FF];
+}
+
+.divider {
+  @apply border-b border-[#223047];
+}
+
+/* ================================================================
+   Print Styles
+   ================================================================ */
+
+@media print {
+  [data-print-hidden] { 
+    display: none !important; 
+  }
+  
+  body { 
+    background: white !important; 
+    color: black !important; 
+  }
+  
+  .enterprise-card {
+    background: white !important;
+    border: 1px solid #ccc !important;
+  }
+}
