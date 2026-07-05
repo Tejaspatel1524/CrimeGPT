@@ -1,0 +1,19 @@
+# This file is for Render deployment compatibility
+# The actual requirements are in backend/requirements.txt
+# Install command: pip install -r backend/requirements.txt
+
+# Core Dependencies (duplicated for Render root directory detection)
+fastapi==0.115.0
+uvicorn==0.32.0
+pydantic==2.11.0
+pydantic[email]
+python-multipart==0.0.9
+python-jose[cryptography]
+bcrypt==4.0.1
+sqlalchemy==2.0.23
+alembic==1.13.1
+psycopg2-binary==2.9.9
+python-dotenv==1.0.0
+easyocr==1.7.0
+pymupdf==1.23.8
+google-generativeai==0.3.2
