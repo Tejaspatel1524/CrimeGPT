@@ -25,10 +25,18 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Get allowed origins from environment variable
-# Default to "*" for development, but should be set to specific origins in production
 allowed_origins = os.getenv("ALLOWED_ORIGINS", "*")
-origins_list = [origin.strip() for origin in allowed_origins.split(",")] if allowed_origins != "*" else ["*"]
+origins_list = []
+if allowed_origins == "*":
+    origins_list = ["*"]
+else:
+    for origin in allowed_origins.split(","):
+        origin_str = origin.strip()
+        if origin_str:
+            origins_list.append(origin_str)
+            if not origin_str.startswith(("http://", "https://")):
+                origins_list.append(f"https://{origin_str}")
+                origins_list.append(f"http://{origin_str}")
 
 app.add_middleware(
     CORSMiddleware,
