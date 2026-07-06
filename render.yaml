@@ -3,11 +3,14 @@ services:
     name: crimegpt-backend
     env: python
     region: oregon
-    buildCommand: pip install -r backend/requirements.txt
+    runtime: python
+    buildCommand: pip install --upgrade pip && pip install -r backend/requirements.txt
     startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.11
+      - key: PIP_NO_CACHE_DIR
+        value: 1
       - key: DATABASE_URL
         sync: false
       - key: SECRET_KEY
