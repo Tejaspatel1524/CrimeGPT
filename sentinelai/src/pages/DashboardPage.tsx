@@ -33,6 +33,7 @@ export default function DashboardPage() {
   // Memoize permissions to prevent infinite loop
   const permissions = useMemo(() => usePermissions(user?.role || 'viewer'), [user?.role]);
   
+  
   const [data, setData] = useState<DashboardData | null>(null);
   const [userStats, setUserStats] = useState<UserStats | null>(null);
   const [usersSummary, setUsersSummary] = useState<UserStatsSummary | null>(null);
@@ -63,9 +64,17 @@ export default function DashboardPage() {
 
   useEffect(() => { fetchData(); }, [fetchData]);
 
-  if (permissions.isAdmin()) return <AdminDashboard data={data} usersSummary={usersSummary} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} />;
-  if (permissions.isInvestigator()) return <InvestigatorDashboard data={data} userStats={userStats} myCases={myCases} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} user={user} />;
-  return <ViewerDashboard data={data} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} />;
+  const renderedDashboard = (() => {
+    if (permissions.isAdmin()) return <AdminDashboard data={data} usersSummary={usersSummary} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} />;
+    if (permissions.isInvestigator()) return <InvestigatorDashboard data={data} userStats={userStats} myCases={myCases} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} user={user} />;
+    return <ViewerDashboard data={data} loading={loading} error={error} onRefresh={fetchData} navigate={navigate} />;
+  })();
+
+  return (
+    <div>
+      {renderedDashboard}
+    </div>
+  );
 }
 
 /* ADMIN DASHBOARD */

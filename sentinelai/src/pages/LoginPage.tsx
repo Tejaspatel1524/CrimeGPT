@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Shield, Mail, Lock, Eye, EyeOff, AlertTriangle, Loader2, CheckCircle } from 'lucide-react';
 import { authApi, initializeAuth } from '@/services/authApi';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { refreshUser } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
@@ -45,6 +47,7 @@ export default function LoginPage() {
       });
       
       initializeAuth();
+      await refreshUser();
       navigate('/dashboard');
     } catch (err: any) {
       const errorMsg = err.response?.data?.detail || 'Invalid email or password.';
